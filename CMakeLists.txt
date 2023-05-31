@@ -36,7 +36,7 @@ if (test) # If needs libcefpyco.so, run 'cmake -Dtest=on .'
 
     add_subdirectory(c_src)
 
-    add_library(cefpyco SHARED c_src/pywrap_cefpyco.c)
+    add_library(cefpyco SHARED c_src/pywrap_cefpyco.c c_src/cefparse/cpcparse_tlv.c c_src/cefparse/cpcparse_tlv.c)
     target_link_libraries(cefpyco ${PYTHON_LIBRARIES} cefore crypto cefpyco_csrc cefpyco_parse)
     #add_custom_command(
     #    TARGET ${PROJECT_NAME}

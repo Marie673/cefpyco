@@ -79,8 +79,8 @@ cpc_client_request_get_with_info (
 	struct fixed_hdr* fix_hdr;
 	uint16_t 	pkt_len;
 	uint8_t 	hdr_len;
-	CefT_Parsed_Message 	pm;
-	CefT_Parsed_Opheader 	poh;
+    CefT_CcnMsg_MsgBdy 	pm;
+    CefT_CcnMsg_MsgBdy 	poh;
 	int						res;
 	int new_len = 0;
 	
