@@ -80,13 +80,13 @@ cpc_client_request_get_with_info (
 	uint16_t 	pkt_len;
 	uint8_t 	hdr_len;
     CefT_CcnMsg_MsgBdy 	pm;
-    CefT_CcnMsg_MsgBdy 	poh;
+    CefT_CcnMsg_OptHdr 	poh;
 	int						res;
 	int new_len = 0;
 	
 	/* Searches the top of the message */
 	if ((buff[i] 	!= CefC_Version) || 
-		(buff[i + 1] > CefC_PT_PING_REP)) {
+		(buff[i + 1] > CefC_T_OPT_PING_REQ)) {
 		
 		while (i < buff_len) {
 			if ((buff[i] 	!= CefC_Version) || 
