@@ -117,10 +117,7 @@ cpc_client_request_get_with_info (
 	
 	res = cef_frame_message_parse (
 				&buff[i], pkt_len, hdr_len, &poh, &pm, CefC_PT_INTEREST);
-	if ( pm.AppComp_num > 0 ) {
-		/* Free AppComp */
-		cef_frame_app_components_free ( pm.AppComp_num, pm.AppComp );
-	}
+
 	if (res < 0) {
 		memcpy (&work_buff[0], &buff[buff_len-new_len], new_len);
 		memcpy (&buff[0], &work_buff[0], new_len);
@@ -139,8 +136,8 @@ cpc_client_request_get_with_info (
 	
 	app_request->version = CefC_App_Version;
 	app_request->type = CefC_App_Type_Internal;
-	if (pm.chnk_num_f) {
-		app_request->chunk_num = pm.chnk_num;
+	if (pm.chunk_num_f) {
+		app_request->chunk_num = pm.chunk_num;
 	} else {
 		app_request->chunk_num = -1;
 	}
